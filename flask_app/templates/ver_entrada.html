@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block titulo %}Ver entrada{% endblock %}
+{% block contenido %}
+<h1>Detalle de la entrada</h1>
+
+<p><strong>Fecha:</strong> {{ entrada.fecha }}</p>
+
+<h2>Notas</h2>
+<p>{{ entrada.notas }}</p>
+
+<a href="/entradas/editar/{{ entrada.id }}">Editar entrada</a>
+<a href="/entradas">Volver al inicio</a>
+{% endblock %}

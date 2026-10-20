@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block titulo %}Nueva entrada{% endblock %}
+{% block contenido %}
+<h1>Crear nueva entrada</h1>
+
+<form action="/entradas/crear" method="POST">
+    <label for="fecha">Fecha</label>
+    <input type="date" id="fecha" name="fecha" max="{{ fecha_hoy }}" required>
+
+    <label for="notas">Notas</label>
+    <textarea id="notas" name="notas" rows="6" required></textarea>
+
+    <button type="submit">Guardar entrada</button>
+</form>
+
+<a href="/entradas">Volver al inicio</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block titulo %}Buscar entradas{% endblock %}
+{% block contenido %}
+<h1>Resultados de búsqueda</h1>
+
+<form action="/buscar" method="GET">
+    <label for="termino">Buscar en mis notas</label>
+    <input type="text" id="termino" name="termino" value="{{ termino }}" required>
+    <button type="submit">Buscar</button>
+</form>
+
+{% if entradas %}
+{% for entrada in entradas %}
+<article>
+    <h2>Entrada del {{ entrada.fecha }}</h2>
+
+    <p>{{ entrada.notas }}</p>
+
+    <a href="/entradas/ver/{{ entrada.id }}">Ver entrada</a>
+    <a href="/entradas/editar/{{ entrada.id }}">Editar</a>
+</article>
+{% endfor %}
+{% elif termino %}
+<p>No se encontraron entradas que coincidan con "{{ termino }}".</p>
+{% else %}
+<p>Escribe una palabra para buscar en tus notas.</p>
+{% endif %}
+
+<a href="/entradas">Volver al inicio</a>
+{% endblock %}

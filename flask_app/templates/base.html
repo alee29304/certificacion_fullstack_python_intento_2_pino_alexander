@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Conexión con CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block titulo %}Mis Entradas{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/entradas">Inicio</a>
+
+            {% if session.get('usuario_id') %}
+            <a href="/entradas/nueva">Nueva entrada</a>
+            <a href="/logout">Cerrar sesión</a>
+            {% else %}
+            <a href="/login/vista">Iniciar sesión</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% with mensajes = get_flashed_messages(with_categories=true) %}
+        {% if mensajes %}
+        {% for categoria, mensaje in mensajes %}
+        <p>{{ mensaje }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block contenido %}{% endblock %}
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background-color: #f8eeee;
+    color: #49383a;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #d9a0a4;
+    border-bottom: 4px solid #a94f5a;
+    padding: 12px 25px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    color: #542c32;
+    text-decoration: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #c98189;
+    color: #fffaf7;
+}
+
+main {
+    width: 92%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #783b45;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+section,
+article {
+    background-color: #fffaf5;
+    border: 1px solid #e5c9c8;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 16px 0;
+    box-shadow: 0 3px 9px rgba(111, 49, 58, 0.08);
+}
+
+label {
+    display: block;
+    margin: 12px 0 5px;
+    color: #683941;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid #d7b5b5;
+    border-radius: 5px;
+    background-color: #fffdfb;
+    color: #49383a;
+    font: inherit;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #d9a0a4;
+    border-color: #a94f5a;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 8px 15px;
+    margin: 9px 5px 5px 0;
+    border: 1px solid #963e4a;
+    border-radius: 5px;
+    background-color: #a94f5a;
+    color: #fffaf7;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #78323e;
+}
+
+main a {
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+    color: #963e4a;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+main a:hover {
+    color: #632630;
+}
+
+article {
+    border-top: 3px solid #d9a0a4;
+}
+
+article p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+article form {
+    display: inline-block;
+    margin: 0;
+}
+
+article form button {
+    background-color: #f0d8d6;
+    color: #78323e;
+    border-color: #d9a0a4;
+}
+
+article form button:hover {
+    background-color: #d9a0a4;
+    color: #fffaf7;
+}
+
+main:has(form[action="/registro"]) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 22px;
+    align-items: start;
+}
+
+main:has(form[action="/registro"])>h1 {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+}
+
+main:has(form[action="/registro"])>section {
+    margin-top: 8px;
+}
+
+main:has(form[action="/registro"])>p {
+    grid-column: 1 / -1;
+}
+
+main:has(> article) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+    align-items: start;
+}
+
+main:has(> article)>h1,
+main:has(> article)>h2,
+main:has(> article)>form,
+main:has(> article)>a,
+main:has(> article)>p {
+    grid-column: 1 / -1;
+}
+
+main:has(> article) article {
+    margin: 8px 0;
+    min-width: 0;
+}
+
+main:has(> article) article h2,
+main:has(> article) article h3 {
+    margin-top: 2px;
+}
+
+main:has(> form[action^="/entradas/crear"]),
+main:has(> form[action^="/entradas/actualizar"]) {
+    max-width: 720px;
+}
+
+main:has(> form[action^="/entradas/crear"])>form,
+main:has(> form[action^="/entradas/actualizar"])>form {
+    background-color: #fffaf5;
+    border: 1px solid #e5c9c8;
+    border-radius: 8px;
+    padding: 22px;
+}
+
+@media (max-width: 650px) {
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    main:has(form[action="/registro"]),
+    main:has(> article) {
+        grid-template-columns: 1fr;
+    }
+
+    main:has(form[action="/registro"])>h1,
+    main:has(> article)>h1,
+    main:has(> article)>h2,
+    main:has(> article)>form,
+    main:has(> article)>a,
+    main:has(> article)>p {
+        grid-column: 1;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    section,
+    article {
+        padding: 15px;
+    }
+}
